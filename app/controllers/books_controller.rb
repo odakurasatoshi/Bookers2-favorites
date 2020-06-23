@@ -16,6 +16,7 @@ before_action :authenticate_user!, except: [:top, :about]
 		@book =Book.find(params[:id])
 		@book1 = Book.new
 		@user = User.find(@book.user_id)
+		@comment =Comment.new
 	end
 
 	def edit

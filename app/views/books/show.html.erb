@@ -23,6 +23,16 @@
 						<%= link_to "Edit", edit_book_path(@book.id) %>
 						<%= link_to "Destroy",book_path(@book.id), method: :delete, data: {confirm: "Are you sure?"} %>
 					<% end %>
-		</div>
+				<!-- コメント -->
+			    <div class="comment-list bt style-2" id="comments">
+                	<div class="float-wrapper">
+				        <h3 class="comment-count"><%= @book.comments.count %>件コメント</h3>
+			   		 </div>
+				</div>
+				<%= form_for [@book, @comment] do |f| %>
+				  <%= f.text_field :comment %>
+				  <br>
+				  <%= f.submit '送信する' %>
+				<% end %>
 	</div>
 </div>
